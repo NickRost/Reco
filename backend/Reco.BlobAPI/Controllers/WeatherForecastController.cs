@@ -7,6 +7,7 @@ namespace Reco.BlobAPI.Controllers
     [Route("[controller]")]
     public class FileController : ControllerBase
     {
+        private readonly IFileService _blobService;
 
         public FileController(IFileService blobService)
         {
