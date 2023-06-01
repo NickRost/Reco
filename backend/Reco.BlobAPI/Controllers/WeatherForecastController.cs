@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
+using Reco.Blob.BLL.Services;
+using Reco.BlobAPI.Dtos;
 
 namespace Reco.BlobAPI.Controllers
 {
@@ -7,9 +9,9 @@ namespace Reco.BlobAPI.Controllers
     [Route("[controller]")]
     public class FileController : ControllerBase
     {
-        private readonly IFileService _blobService;
+        private readonly FileService _blobService;
 
-        public FileController(IFileService blobService)
+        public FileController(FileService blobService)
         {
             _blobService = blobService;
         }

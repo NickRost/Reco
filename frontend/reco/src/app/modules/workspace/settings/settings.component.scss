@@ -1,0 +1,107 @@
+.settings-container {
+  margin: 50px;
+  margin-top: 20px;
+}
+
+.settings-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.avatar-box__image img {
+  border-radius: 50%;
+  max-width: 130px;
+  max-height: 130px;
+}
+
+.avatar-box__upload {
+  width: 25px;
+  height: 25px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  padding: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-box__image-container {
+  display: flex;
+  margin-top: 30px;
+}
+
+.name-box {
+  margin-top: 30px;
+
+  &--col {
+    margin-top: 10px;
+  }
+}
+
+.mat-form-field {
+  width: 380px;
+}
+
+.input-label {
+  margin-bottom: 2%;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+.name-save-btn,
+.name-cancel-btn {
+  color: white;
+  background: #fb6d3a;
+  border: 1px solid #fb6d3a;
+  width: 120px;
+
+  &--delete {
+    background: #732939;
+    width: 170px;
+    border: 1px solid #732939;
+    margin-top: 10px;
+  }
+}
+
+.name-cancel-btn {
+  margin-left: 20px;
+  background-color: gray;
+  border: 1px solid gray;
+}
+
+.name-reset-btn {
+  margin-top: 15px;
+  border: 1px solid gray;
+  font-weight: bold;
+  width: 260px;
+
+  svg {
+    width: 25px;
+    margin-right: 10px;
+  }
+}
+
+.hr {
+  height: 2px;
+  background-color: #732939;
+  margin: 30px 0 40px;
+  opacity: 0.6;
+}
+
+.invalid-block {
+  color: red;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.box-dropzone {
+  margin-left: 30px;
+}
+
+.box-dropzone .ng-star-inserted {
+  margin: 20px 40px;
+}

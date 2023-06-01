@@ -1,0 +1,23 @@
+[data-emoji] {
+  font-style: normal;
+  font-weight: normal;
+}
+[data-emoji]:before {
+  content: attr(data-emoji);
+  margin-right: 0.125em;
+}
+
+.emojis-reactions {
+  margin-left: auto;
+  margin-right: 1rem;
+  width: 80%;
+}
+
+.reaction-button {
+  width: 30px;
+  height: 30px;
+  width: 80%;
+  .button-label {
+    margin-left: 1rem !important;
+  }
+}

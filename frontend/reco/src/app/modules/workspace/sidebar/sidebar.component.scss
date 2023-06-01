@@ -1,0 +1,123 @@
+:host {
+  .mat-icon {
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+mat-nav-list {
+  margin-left: 35px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-right: 35px;
+}
+
+.mat-list-item {
+  color: #fff;
+  font-size: 1rem;
+  height: 65px !important;
+  border: none;
+  background: #732939;
+  border-radius: 10px;
+  &:hover {
+    background: #b6445d;
+  }
+}
+
+.button-active {
+  background: #b6445d;
+}
+
+.mat-subheader {
+  color: #fec9d4;
+  width: 100%;
+}
+
+.workspace-container {
+  float: left;
+  background: #b6445d;
+  padding: 10px;
+  margin-bottom: 35px;
+  margin-top: 25px;
+  border-radius: 10px;
+}
+
+.workspace-user {
+  float: left;
+  width: 100%;
+  max-width: 100%;
+  color: white;
+  border: 1px solid #fec9d4;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.workspace-button {
+  float: left;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: #fb6d3a;
+  color: white;
+  height: 36px;
+  text-align: center;
+}
+
+.user-subheader {
+  float: left;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.member-subheader {
+  width: 100%;
+  margin-left: 15px;
+  float: left;
+  padding-left: 10px;
+  padding-bottom: 17px;
+}
+
+.teams {
+  margin-left: 20px;
+}
+
+.ng-star-inserted {
+  color: white !important;
+}
+
+.mat-form-field-infix {
+  color: white !important;
+}
+
+.mat-select-min-line .ng-tns-c103-2 .ng-star-inserted {
+  color: white !important;
+}
+
+select {
+  border: 2px solid red;
+}
+
+.others {
+  margin: 10px !important;
+}
+
+.opt {
+  background-color: #b6445d;
+  color: black !important;
+}
+
+.teams-box {
+  margin-left: 20px;
+}
+
+mat-option[aria-selected='true'] {
+  color: red;
+}
+
+.select-cls {
+  color: red !important;
+}

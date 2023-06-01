@@ -1,0 +1,58 @@
+<mat-nav-list>
+  <a class="logo" routerLink="">
+    <img src="../../../../assets/icons/logo-white.svg" alt="logo" />
+  </a>
+
+  <div class="workspace-container">
+    <div class="workspace-user">
+      <mat-form-field class="teams-box" appearance="fill">
+        <mat-select
+          style="color: red"
+          class="select-cls"
+          [(ngModel)]="value"
+          (selectionChange)="onChange()"
+        >
+          <mat-option
+            class="opt"
+            *ngFor="let team of this.user.teams"
+            [value]="team.name"
+          >
+            {{ team.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="member-subheader">Members: {{ this.members }}</span>
+    </div>
+    <button
+      (click)="showInvite()"
+      mat-button
+      class="workspace-button"
+      routerLink=""
+    >
+      Invite teammates
+    </button>
+  </div>
+
+  <p matSubheader>Libraries</p>
+
+  <button mat-list-item routerLink="" routerLinkActive="button-active">
+    <mat-icon svgIcon="personal"></mat-icon>
+    <span>Personal</span>
+  </button>
+  <button
+    mat-list-item
+    routerLink="shared-with-me"
+    routerLinkActive="button-active"
+  >
+    <mat-icon svgIcon="share"></mat-icon>
+    <span>Shared with me</span>
+  </button>
+  <button mat-list-item routerLink="team" routerLinkActive="button-active">
+    <mat-icon svgIcon="team"></mat-icon>
+    <span>Team</span>
+  </button>
+  <button mat-list-item routerLink="settings" routerLinkActive="button-active">
+    <mat-icon svgIcon="settings"></mat-icon>
+    <span>Settings</span>
+  </button>
+</mat-nav-list>

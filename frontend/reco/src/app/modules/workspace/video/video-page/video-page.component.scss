@@ -1,0 +1,28 @@
+.actions-container {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  button {
+    margin-left: 10px;
+    border-radius: 8px;
+  }
+}
+
+.sticky {
+  background-color: #f4e9e9;
+  position: sticky;
+  padding-top: 30px;
+  z-index: 100;
+  top: 115px;
+}
+
+.reactions-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+.video-name {
+  padding-top: 1.5rem;
+}

@@ -1,0 +1,155 @@
+<div class="registration-container">
+  <img src="../../../../assets/icons/logo.svg" alt="logo" />
+  <div class="to-login-container">
+    <h2>Create an account</h2>
+    <p class="already-registered">
+      Already registered?
+      <button routerLink="/login">
+        <span> Log in</span>
+      </button>
+    </p>
+  </div>
+  <form
+    class="registration-form"
+    [formGroup]="registerForm"
+    action=""
+    (submit)="registerUser()"
+  >
+    <p class="input-label">Workspace name</p>
+    <mat-form-field
+      class="input-form"
+      appearance="fill"
+      floatLabel="always"
+      hideRequiredMarker="true"
+    >
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="workspaceName"
+        id="workspaceName"
+      />
+    </mat-form-field>
+    <div class="errors">
+      <span *ngIf="registerForm.controls['workspaceName'].touched">
+        <small
+          *ngIf="registerForm.controls['workspaceName'].errors?.['required']"
+        >
+          Workspace is a required property.
+        </small>
+        <small
+          *ngIf="
+                    registerForm.controls['workspaceName'].errors?.['minlength'] ||
+                    registerForm.controls['workspaceName'].errors?.['maxlength'] ||
+                    registerForm.controls['workspaceName'].errors?.['startsOrEndWithSpace']"
+        >
+          Must be 3-30 characters without start and end spaces.
+        </small>
+      </span>
+    </div>
+
+    <p class="input-label">Email</p>
+    <mat-form-field
+      class="input-form"
+      appearance="fill"
+      floatLabel="never"
+      hideRequiredMarker="true"
+    >
+      <input
+        type="email"
+        matInput
+        placeholder="User@gmail.com"
+        formControlName="email"
+        trim
+      />
+    </mat-form-field>
+    <div class="errors">
+      <span *ngIf="registerForm.controls['email'].touched">
+        <small *ngIf="registerForm.controls['email'].errors?.['required']">
+          Email is a required property
+        </small>
+        <small *ngIf="registerForm.controls['email'].errors?.['pattern']">
+          Invalid email
+        </small>
+      </span>
+    </div>
+
+    <p class="input-label">Password</p>
+    <mat-form-field
+      class="input-form"
+      appearance="fill"
+      hideRequiredMarker="true"
+    >
+      <input
+        [type]="hidePass ? 'password' : 'text'"
+        matInput
+        minlength="8"
+        placeholder="Password"
+        formControlName="password"
+        trim
+      />
+      <mat-icon class="password-icon" matSuffix (click)="hidePass = !hidePass"
+        >{{ hidePass ? 'visibility' : 'visibility_off' }}
+      </mat-icon>
+    </mat-form-field>
+    <div class="errors">
+      <span *ngIf="registerForm.controls['password'].touched">
+        <small *ngIf="registerForm.controls['password'].errors?.['required']">
+          Password is a required property
+        </small>
+        <small
+          *ngIf=" 
+                    registerForm.controls['password'].errors?.['pattern'] || 
+                    registerForm.controls['password'].errors?.['minlength'] ||
+                    registerForm.controls['password'].errors?.['maxlength'] ||
+                    registerForm.controls['password'].errors?.['cannotContainSpace']"
+        >
+          At least 1 digit and 1 letter, 8-20 characters without spaces
+        </small>
+      </span>
+    </div>
+
+    <p class="input-label">Repeat Password</p>
+    <mat-form-field
+      class="input-form"
+      appearance="fill"
+      hideRequiredMarker="true"
+    >
+      <input
+        [type]="hideConfirmPass ? 'password' : 'text'"
+        matInput
+        minlength="8"
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+        trim
+      />
+      <mat-icon
+        class="password-icon"
+        matSuffix
+        (click)="hideConfirmPass = !hideConfirmPass"
+        >{{ hideConfirmPass ? 'visibility' : 'visibility_off' }}
+      </mat-icon>
+    </mat-form-field>
+    <div class="errors">
+      <small
+        *ngIf=" registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].errors?.['NoPassswordMatch']"
+      >
+        Passwords do not match
+      </small>
+    </div>
+
+    <div class="registation-buttons">
+      <button
+        class="submit-button"
+        mat-button
+        type="submit"
+        [disabled]="!registerForm.valid"
+      >
+        Sign Up
+      </button>
+      <p>Or sign up with</p>
+      <button (click)="googleLogin($event)" class="login-with-button">
+        <img src="../../../../assets/icons/googleButton.svg" alt="google" />
+      </button>
+    </div>
+  </form>
+</div>

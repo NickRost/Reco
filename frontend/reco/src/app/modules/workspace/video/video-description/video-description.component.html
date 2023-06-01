@@ -1,0 +1,17 @@
+<div class="description-container">
+  <div class="user-info-container">
+    <app-avatar [src]="src" [size]="96"></app-avatar>
+    <div class="user-info">
+      <span class="user-name">
+        {{ username }}
+      </span>
+      <span class="date">
+        {{ dateOfComment }}
+      </span>
+    </div>
+  </div>
+  <mat-form-field appearance="outline" class="textarea">
+    <mat-label>Add a description...</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+</div>

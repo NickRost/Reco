@@ -1,0 +1,37 @@
+::ng-deep.mat-form-field-ripple {
+  background-color: #FB6D3A !important;;
+ }
+
+.m-r-auto {
+  margin-right: auto;
+}
+
+mat-dialog-actions {
+  padding: 0px;
+}
+
+.title {
+  text-align: center;
+}
+.errors {
+  color: red;
+  margin-left: 10px;
+}
+
+.invite-btn {
+  border-radius: 5px;
+  border: none;
+  background-color: #fb6d3a;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+button:disabled {
+  cursor: default;
+  background: #e0d8d7;
+  color: #989898;
+}

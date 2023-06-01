@@ -1,0 +1,47 @@
+<mat-card class="properties-card">
+  <div class="properties-title">
+    <mat-icon>link</mat-icon>
+    <h2 mat-dialog-title class="title">
+      {{ title }}
+    </h2>
+  </div>
+  <div class="actions" *ngIf="this.checked">
+    <span class="link">
+      <p class="text-link">{{ this.link }}</p>
+    </span>
+    <button
+      id="copy-link"
+      class="link-button"
+      [cdkCopyToClipboard]="this.link"
+      (click)="openSnackBar()"
+    >
+      Copy video link
+    </button>
+  </div>
+  <div class="main-content">
+    <p class="text-properties">
+      This video is
+      {{
+        this.checked
+          ? "public (any user can see this video)"
+          : "private (only you can see this video)"
+      }}
+    </p>
+    <button
+      id="change-property"
+      class="link-button"
+      *ngIf="this.checked"
+      (click)="changeProperty()"
+    >
+      Make video private
+    </button>
+    <button
+      id="change-property"
+      class="link-button"
+      *ngIf="!this.checked"
+      (click)="changeProperty()"
+    >
+      Make video public
+    </button>
+  </div>
+</mat-card>

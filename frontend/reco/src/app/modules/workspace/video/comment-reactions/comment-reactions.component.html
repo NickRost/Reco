@@ -1,0 +1,36 @@
+<div *ngIf="!this.isLoading">
+  <div class="emojis-reaction">
+    <button mat-icon-button (click)="addReaction(1)">
+      <img
+        src="../../../../../assets/img/ThumbsUp.png"
+        width="20"
+        height="20"
+      />
+      <p>
+        <mat-icon
+          matBadge="{{ GetReactions(1) }}"
+          matBadgeColor="accent"
+          matBadgeSize="small"
+          [matBadgeHidden]="GetReactions(1) === 0"
+          aria-label="Like"
+        ></mat-icon>
+      </p>
+    </button>
+    <button mat-icon-button (click)="addReaction(2)">
+      <img
+        src="../../../../../assets/img/ThumbsDown.png"
+        width="20"
+        height="20"
+      />
+      <p>
+        <mat-icon
+          matBadge="{{ GetReactions(2) }}"
+          matBadgeColor="accent"
+          matBadgeSize="small"
+          [matBadgeHidden]="GetReactions(2) === 0"
+          aria-label="Dislike"
+        ></mat-icon>
+      </p>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer {
+  width: 335px;
+  border-right: none;
+  background: #732939;
+}
+
+mat-drawer-content {
+  background: #732939;
+}
+
+mat-drawer-container {
+  height: 100%;
+  width: 100%;
+  background: #732939;
+}
+
+.content {
+  margin-right: 35px;
+  border-radius: 10px;
+  background: #f4e9e9;
+  padding: 50px;
+  min-height: calc(100% - 140px);
+  min-width: 700px;
+}

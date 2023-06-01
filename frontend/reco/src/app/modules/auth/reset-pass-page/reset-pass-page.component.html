@@ -1,0 +1,65 @@
+<div class="flex-container">
+  <div class="left-part">
+    <div class="login-container">
+      <img src="../../../../assets/icons/logo.svg" alt="logo" />
+      <div class="to-login-container">
+        <h2>Reset password</h2>
+        <p class="dont-have-account">
+          Don't have an account?
+          <button routerLink="/register">
+            <span> Register</span>
+          </button>
+        </p>
+      </div>
+      <form
+        class="login-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="resetPassword(loginForm.value)"
+      >
+        <p class="input-label">Email</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          hideRequiredMarker="true"
+        >
+          <input
+            type="email"
+            matInput
+            placeholder="User@gmail.com"
+            [(ngModel)]="userLoginDto.email"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <div class="errors">
+          <span *ngIf="loginForm.controls['email'].touched">
+            <small *ngIf="loginForm.controls['email'].errors?.['required']">
+              Email is a required property
+            </small>
+            <small *ngIf="loginForm.controls['email'].errors?.['pattern']">
+              Invalid email
+            </small>
+          </span>
+        </div>
+        <div *ngIf="!isDone" class="registation-buttons">
+          <button
+            class="submit-button"
+            mat-button
+            type="submit"
+            [disabled]="!loginForm.valid"
+          >
+            Reset
+          </button>
+        </div>
+        <div *ngIf="isDone">
+          Please check your email inbox for a password recovery link. Don't
+          forget to check your spam folder.
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="right-part">
+    <div>
+      <img src="../../../../assets/icons/bigLogo.svg" />
+    </div>
+  </div>
+</div>

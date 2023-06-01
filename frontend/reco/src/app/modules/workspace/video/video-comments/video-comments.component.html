@@ -1,0 +1,45 @@
+<mat-card *ngIf="!this.isLoading">
+  <mat-card-header>
+    <img mat-card-avatar src="{{ commentAuthor.avatarLink }}" alt="Avatar" />
+    <mat-card-title>{{ commentAuthor.workspaceName }} </mat-card-title>
+    <div>{{ comment.createdAt | date: 'd/M/yy, h:mm a' }}</div>
+  </mat-card-header>
+  <mat-card-content *ngIf="!isEditingMode">
+    <p>{{ comment.body }}</p>
+  </mat-card-content>
+  <mat-card-content *ngIf="isEditingMode">
+    <mat-form-field>
+      <textarea
+        [(ngModel)]="comment.body"
+        matInput
+        placeholder="Write something..."
+      ></textarea>
+    </mat-form-field>
+    <button
+      mat-icon-button
+      color="primary"
+      matTooltip="Post it"
+      (click)="onEditComment()"
+    >
+      <mat-icon aria-label="Send">send</mat-icon>
+    </button>
+  </mat-card-content>
+  <mat-card-actions
+    class="actions-buttons"
+    align="end"
+    *ngIf="this.isCommentAuthor"
+  >
+    <button mat-icon-button color="accent" (click)="toggleIsEditingMode()">
+      <mat-icon aria-label="Edit">edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDeleteComment()">
+      <mat-icon aria-label="Delete">delete</mat-icon>
+    </button>
+  </mat-card-actions>
+  <app-comment-reactions
+    class="reactions-container"
+    [comment]="this.comment"
+    [user]="this.currentUser"
+    (newReaction)="updateReaction()"
+  ></app-comment-reactions>
+</mat-card>

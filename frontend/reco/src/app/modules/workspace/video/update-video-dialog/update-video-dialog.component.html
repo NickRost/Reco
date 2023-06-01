@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Enter video name</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+        <input matInput
+                placeholder="Video name"
+               formControlName="videoName">
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="submit-button"(click)="save()" [disabled]="!form.valid">Save</button>
+</mat-dialog-actions>

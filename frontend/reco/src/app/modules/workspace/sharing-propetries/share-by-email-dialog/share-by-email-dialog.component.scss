@@ -1,0 +1,50 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+}
+
+.title {
+  text-align: start;
+  margin: 5px;
+}
+
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-card {
+  margin-top: 10.75% !important;
+  margin-bottom: 1.25rem !important;
+  border: 1.5px solid #732939;
+  width: 40%;
+  margin: 0 auto;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #fb6d3a !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #fb6d3a !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: #fb6d3a !important;
+}
+
+.mat-raised-button {
+  left: 82.5%;
+}
+
+.share-title {
+  display: flex;
+  align-items: center;
+  .mat-icon {
+    padding-right: 25px;
+  }
+}

@@ -1,0 +1,125 @@
+<div class="mat-container">
+  <mat-card-content *ngIf="isEditingMode">
+    <mat-form-field>
+      <textarea
+        [(ngModel)]="newComment.body"
+        matInput
+        placeholder="Write your comment..."
+      ></textarea>
+    </mat-form-field>
+    <button mat-icon-button matTooltip="Post it" (click)="createComment()">
+      <mat-icon class="send-icon" aria-label="Send">send</mat-icon>
+    </button>
+  </mat-card-content>
+  <mat-card class="reactions-container">
+    <div class="emojis-reaction">
+      <button mat-icon-button (click)="addReaction(4)">
+        <img
+          src="../../../../../assets/img/FaceWithTearsOfJoy.png"
+          width="30"
+          height="30"
+        />
+        <p>
+          <mat-icon
+            matBadge="{{ GetReactions(4) }}"
+            matBadgeColor="accent"
+            matBadgeSize="medium"
+            [matBadgeHidden]="GetReactions(4) === 0"
+            aria-label="Fun"
+          ></mat-icon>
+        </p>
+      </button>
+      <button mat-icon-button (click)="addReaction(5)">
+        <img
+          src="../../../../../assets/img/HushedFace.png"
+          width="30"
+          height="30"
+        />
+        <p>
+          <mat-icon
+            matBadge="{{ GetReactions(5) }}"
+            matBadgeColor="accent"
+            matBadgeSize="medium"
+            [matBadgeHidden]="GetReactions(5) === 0"
+            aria-label="Astonishment"
+          ></mat-icon>
+        </p>
+      </button>
+      <button mat-icon-button (click)="addReaction(3)">
+        <img
+          src="../../../../../assets/img/SmilingFaceWithHeartEyes.png"
+          width="30"
+          height="30"
+        />
+        <p>
+          <mat-icon
+            matBadge="{{ GetReactions(3) }}"
+            matBadgeColor="accent"
+            matBadgeSize="medium"
+            [matBadgeHidden]="GetReactions(3) === 0"
+            aria-label="Love"
+          ></mat-icon>
+        </p>
+      </button>
+      <button mat-icon-button (click)="addReaction(6)">
+        <img
+          src="../../../../../assets/img/RaisingHands.png"
+          width="30"
+          height="30"
+        />
+        <p>
+          <mat-icon
+            matBadge="{{ GetReactions(6) }}"
+            matBadgeColor="accent"
+            matBadgeSize="medium"
+            [matBadgeHidden]="GetReactions(6) === 0"
+            aria-label="Magically"
+          ></mat-icon>
+        </p>
+      </button>
+      <button mat-icon-button (click)="addReaction(1)">
+        <img
+          src="../../../../../assets/img/ThumbsUp.png"
+          width="30"
+          height="30"
+        />
+        <p>
+          <mat-icon
+            matBadge="{{ GetReactions(1) }}"
+            matBadgeColor="accent"
+            matBadgeSize="medium"
+            [matBadgeHidden]="GetReactions(1) === 0"
+            aria-label="Like"
+          ></mat-icon>
+        </p>
+      </button>
+      <button mat-icon-button (click)="addReaction(2)">
+        <img
+          src="../../../../../assets/img/ThumbsDown.png"
+          width="30"
+          height="30"
+        />
+        <p>
+          <mat-icon
+            matBadge="{{ GetReactions(2) }}"
+            matBadgeColor="accent"
+            matBadgeSize="medium"
+            [matBadgeHidden]="GetReactions(2) === 0"
+            aria-label="Dislike"
+          ></mat-icon>
+        </p>
+      </button>
+    </div>
+    <div class="separator"></div>
+    <div class="buttons-reatcions" (click)="this.toggleIsEditingMode()">
+      <button mat-button>
+        <mat-icon>comment</mat-icon>
+        <span class="buton-label"> Comment</span>
+      </button>
+      <button mat-button disabled>
+        <mat-icon>video_call</mat-icon>
+        <span class="buton-label"> Record a comment</span>
+      </button>
+    </div>
+  </mat-card>
+</div>

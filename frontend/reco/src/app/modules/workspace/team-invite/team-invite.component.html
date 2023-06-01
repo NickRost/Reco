@@ -1,0 +1,49 @@
+<div class="title">
+  <h2 mat-dialog-title>Invite teammates</h2>  
+</div>
+
+<form class="login-form" [formGroup]="inviteForm">
+  <mat-dialog-content>
+    <mat-form-field
+      class="input-form"
+      appearance="fill"
+      hideRequiredMarker="true">
+      <input
+        type="email"
+        matInput
+        placeholder="user@gmail.com"
+        formControlName="email"
+      />
+    </mat-form-field>
+    <div class="errors">
+      <span *ngIf="inviteForm.controls['email'].touched">
+        <small *ngIf="inviteForm.controls['email'].errors?.['required']">
+          Email is a required property
+        </small>
+        <small *ngIf="inviteForm.controls['email'].errors?.['pattern']">
+          Invalid email
+        </small>
+      </span>
+    </div>
+  </mat-dialog-content>
+</form>
+
+<div class="buttons">
+  <mat-dialog-actions>
+    <button
+      class="invite-btn m-r-auto"
+      mat-button
+      type="submit"
+      [disabled]="!inviteForm.valid"
+      (click)="sendInvite()">
+      Send invite
+    </button>
+    <button
+      class="invite-btn"
+      mat-button
+      type="submit"
+      (click)="close()">
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>

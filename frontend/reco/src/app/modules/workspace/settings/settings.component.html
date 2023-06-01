@@ -1,0 +1,166 @@
+<div class="settings-container">
+  <div class="avatar-box">
+    <form [formGroup]="formAvatar">
+      <div class="settings-title">Avatar and workspace</div>
+      <div class="avatar-box__image-container">
+        <div class="avatar-box__image">
+          <img (error)="errorHandler($event)" src="{{ this.avatar }}" />
+        </div>
+        <input
+          (change)="handleFileInput($event)"
+          hidden
+          class="file-hide"
+          #file
+          accept="image/*"
+          type="file"
+        />
+        <div class="avatar-box__upload" (click)="file.click()">
+          <img src="../../../../assets/img/Add-Avatar.png" />
+        </div>
+        <ngx-dropzone class="box-dropzone" (change)="onSelect($event)">
+          <ngx-dropzone-label>Or drop it</ngx-dropzone-label>
+        </ngx-dropzone>
+      </div>
+
+      <div class="name-box">
+        <p class="input-label">My Workspace content</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          color="warn"
+          floatLabel="always"
+          hideRequiredMarker="true"
+        >
+          <input
+            matInput
+            placeholder="Workspace"
+            formControlName="workspaceName"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="name-save-box">
+      <button
+        [disabled]="!formAvatar.valid"
+        (click)="saveNewInfo()"
+        class="name-save-btn"
+        mat-button
+      >
+        Save
+      </button>
+      <button (click)="saveNewInfoCancel()" class="name-cancel-btn" mat-button>
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <form [formGroup]="formPassword">
+    <div class="hr"></div>
+    <div class="info-box">
+      <div class="settings-title">Email and password</div>
+      <div class="name-box">
+        <p class="input-label">Email</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          color="warn"
+          floatLabel="always"
+          hideRequiredMarker="true"
+        >
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="fullName"
+            required
+            formControlName="email"
+          />
+        </mat-form-field>
+      </div>
+      <div class="name-box name-box--col">
+        <p class="input-label">Current Password</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          color="warn"
+          floatLabel="always"
+          hideRequiredMarker="true"
+        >
+          <input
+            type="password"
+            formControlName="passOld"
+            matInput
+            placeholder="Current Password"
+          />
+        </mat-form-field>
+      </div>
+      <div class="name-box name-box--col">
+        <p class="input-label">New Password</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          color="warn"
+          floatLabel="always"
+          hideRequiredMarker="true"
+        >
+          <input
+            type="password"
+            formControlName="passNew"
+            matInput
+            placeholder="New Password"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="name-save-box">
+        <button
+          [disabled]="!formPassword.valid"
+          class="name-save-btn"
+          (click)="saveNewPass()"
+          mat-button
+        >
+          Save
+        </button>
+        <button
+          class="name-cancel-btn"
+          (click)="saveNewPassCancel()"
+          mat-button
+        >
+          Cancel
+        </button>
+        <div>
+          <button (click)="resetPassword()" class="name-reset-btn" mat-button>
+            <svg viewBox="4 0 16.399999618530273 24" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.6 12.2a.6.6 0 00-.6.6v5.6a.6.6 0 00.6.6h11.2a.6.6 0 00.6-.6v-5.6a.6.6 0 00-.6-.6H6.6zm-2.6.6a2.6 2.6 0 012.6-2.6h11.2a2.6 2.6 0 012.6 2.6v5.6a2.6 2.6 0 01-2.6 2.6H6.6A2.6 2.6 0 014 18.4v-5.6z"
+                fill="currentColor"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.2 5a3 3 0 00-3 3v3.2a1 1 0 11-2 0V8a5 5 0 1110 0v3.2a1 1 0 11-2 0V8a3 3 0 00-3-3z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            Reset Password
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="hr"></div>
+  <div class="delete-box">
+    <div class="name-save-box">
+      <button
+        (click)="deleteUser()"
+        class="name-save-btn name-save-btn--delete"
+        mat-button
+      >
+        Delete my account
+      </button>
+    </div>
+  </div>
+</div>

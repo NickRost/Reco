@@ -1,0 +1,142 @@
+<div class="personal-page-header">
+  <app-avatar src='{{currentUser.avatarLink}}' [size]="96"></app-avatar>
+  <div class="page-header-text">
+    <p class="page-header-username">{{this.currentUser.workspaceName}}</p>
+    <p class="page-heeader-library-name">Personal library</p>
+  </div>
+</div>
+<div class="page-header-links">
+  <div class="header-links-left">
+    <button class="videos-button" mat-button>Videos</button>
+    <button [disabled]="true" class="screenshots-button">Screenshots</button>
+  </div>
+  <div class="header-links-right">
+    <mat-button-toggle-group class="view-toggle-group" #group = "matButtonToggleGroup" value="grid">
+      <mat-button-toggle value ="grid" class="grid-toggle-button">
+        <mat-icon svgIcon="grid"></mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value ="list" class="list-toggle-button">
+        <mat-icon svgIcon="list"></mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <button mat-button class="button-outlined" (click)="showNewFolderForm()" >New Folder</button>
+    <button mat-button class="button-accent">New Video</button>
+  </div>
+</div>
+
+<h2><a class="navigate" [routerLink]="['']" *ngIf="this.folders.length !== 0">Folders</a>{{selectedFolderName}}</h2>
+
+<div *ngFor="let folder of folders" class="folders" [routerLink]="['/folder',folder.id]" (click)="folderClick(folder)">
+  <div class="folder" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="folder-active">
+    <span>{{folder.name}}</span>
+    <button mat-icon-button class="details"
+      [matMenuTriggerFor]="folderContextMenu">
+        <mat-icon svgIcon="vertical-dots"></mat-icon>
+  </button>
+  </div>
+  <mat-menu #folderContextMenu="matMenu" xPosition="after" class="item-menu">
+    <button mat-menu-item (click)="deleteFolder(folder.id, folder.name)"> Delete </button>
+    <button mat-menu-item (click)="showNewFolderForm(folder)"> Rename </button>
+  </mat-menu>
+</div>
+
+<app-folder *ngIf="selectedFolderId !== undefined" [groupValue]="group.value" [currentUser]="currentUser"></app-folder>
+
+<div *ngIf="selectedFolderId === undefined">
+<mat-list *ngIf="group.value === 'grid'">
+  <mat-list-item *ngFor="let video of videos">
+    <div matLine class="item-header">
+      <img
+        src="{{currentUser.avatarLink}}"
+        alt="avatar"
+        class="item-avatar"
+      />
+      <button mat-icon-button class="details"
+      [matMenuTriggerFor]="videoContextMenu">
+        <mat-icon svgIcon="details"></mat-icon>
+      </button>
+    </div>
+    <div matLine class="item-photo" [routerLink]="['video',video.id]">
+      <video
+        src="{{video.link}}#t=1"
+        alt="video"
+        class="screenshot-image">
+      </video>
+    </div>
+    <div matLine class="item-name">
+      <p>{{video.name}}</p>
+    </div>
+    <div matLine class="item-footer">
+      <span class="footer-date">{{calculateTimeDifference(video.createdAt)}}</span>
+      <div class="footer-icons">
+        <button mat-icon-button>
+          <mat-icon svgIcon="star"></mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon svgIcon="share-link"></mat-icon>
+        </button>
+      </div>
+    </div>
+    <mat-menu #videoContextMenu="matMenu" xPosition="after" class="item-menu">
+      <button mat-menu-item (click)="deleteVideo(video.id)">Delete</button>
+      <button mat-menu-item (click)="showVideoUpdateDialog(video)">Rename</button>
+    </mat-menu>
+  </mat-list-item>
+  
+</mat-list>
+
+<table mat-table *ngIf="group.value === 'list' && videos !== undefined" [dataSource]="videos" class="folder-table">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="icon-text-cell">
+        <mat-icon svgIcon="folder"></mat-icon>
+        <span class="cell-text">Title</span>
+      </div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="icon-text-cell pointer" [routerLink]="['video', element.id]">
+        <mat-icon svgIcon="folder"></mat-icon>
+        <span class="cell-text">{{element.name}}</span>
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="owner">
+    <th mat-header-cell *matHeaderCellDef>Owner</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="icon-text-cell">
+        <img
+          src='{{currentUser.avatarLink}}'
+          alt="avatar"
+          class="item-avatar"
+        />
+        <span class="cell-text">{{currentUser.workspaceName}}</span>
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="details">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> 
+      <button mat-icon-button class="details"
+      [matMenuTriggerFor]="videoContextMenu">
+        <mat-icon svgIcon="details"></mat-icon>
+      </button>
+      <mat-menu #videoContextMenu="matMenu" xPosition="after" class="item-menu">
+        <button mat-menu-item (click)="deleteVideo(element.id)">Delete</button>
+        <button mat-menu-item (click)="showVideoUpdateDialog(element)">Rename</button>
+      </mat-menu>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
+</table>
+
+  <div class="emptyData" *ngIf="videos?.length === 0 || videos === undefined">
+    <b>Here you will be able to see all your uploaded videos</b>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="flex-container">
+  <div class="left-part">
+    <div class="login-container">
+      <img src="../../../../assets/icons/logo.svg" alt="logo" />
+      <div class="to-login-container">
+        <h2>Sign in to Recodo</h2>
+        <p class="dont-have-account">
+          Don't have an account?
+          <button routerLink="/register">
+            <span> Register</span>
+          </button>
+        </p>
+      </div>
+      <form
+        class="login-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="signIn(loginForm.value)"
+      >
+        <p class="input-label">Email</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          hideRequiredMarker="true"
+        >
+          <input
+            type="email"
+            matInput
+            placeholder="User@gmail.com"
+            [(ngModel)]="userLoginDto.email"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <div class="errors">
+          <span *ngIf="loginForm.controls['email'].touched">
+            <small *ngIf="loginForm.controls['email'].errors?.['required']">
+              Email is a required property
+            </small>
+            <small *ngIf="loginForm.controls['email'].errors?.['pattern']">
+              Invalid email
+            </small>
+          </span>
+        </div>
+
+        <p class="input-label">
+          Password
+          <a routerLink="/reset-password" href="#" class="forgot-password"
+            >(Forgot password)</a
+          >
+        </p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          hideRequiredMarker="true"
+        >
+          <input
+            [type]="hidePass ? 'password' : 'text'"
+            matInput
+            minlength="8"
+            placeholder="Password"
+            [(ngModel)]="userLoginDto.password"
+            formControlName="password"
+          />
+          <mat-icon
+            class="password-icon"
+            matSuffix
+            (click)="hidePass = !hidePass"
+            >{{ hidePass ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+        </mat-form-field>
+        <div class="errors">
+          <small
+            *ngIf=" loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']"
+          >
+            Password is a required property
+          </small>
+          <small
+            *ngIf=" 
+              loginForm.controls['password'].errors?.['pattern'] || 
+              loginForm.controls['password'].errors?.['minlength'] ||
+              loginForm.controls['password'].errors?.['maxlength'] ||
+              loginForm.controls['password'].errors?.['cannotContainSpace']"
+          >
+            At least 1 digit and 1 letter, 8-20 characters without spaces
+          </small>
+        </div>
+
+        <div class="registation-buttons">
+          <button
+            class="submit-button"
+            mat-button
+            type="submit"
+            [disabled]="!loginForm.valid"
+          >
+            Sign In
+          </button>
+          <p>Or sign in with</p>
+          <button (click)="googleLogin($event)" class="login-with-button">
+            <img src="../../../../assets/icons/googleButton.svg" alt="google" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="right-part">
+    <div>
+      <img src="../../../../assets/icons/bigLogo.svg" />
+    </div>
+  </div>
+</div>

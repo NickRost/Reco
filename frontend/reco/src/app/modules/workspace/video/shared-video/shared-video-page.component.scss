@@ -1,0 +1,47 @@
+.actions-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+  button {
+    margin-left: 10px;
+    border-radius: 8px;
+  }
+}
+
+.reactions-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+.no-access-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-access-image {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  height: 225px;
+  width: 225px;
+}
+
+.no-access-text {
+  font-size: 20px;
+  color: #732939;
+}
+
+.spinner {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding-top: 15%;
+}
+
+:host ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #732939;
+}

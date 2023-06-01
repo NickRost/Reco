@@ -1,0 +1,71 @@
+.main-content {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  padding-left: 9px;
+}
+
+.text-properties {
+  margin: 0;
+  padding-right: 5px;
+  margin-left: 20px;
+}
+
+.title {
+  text-align: start;
+  margin: 5px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .link {
+    margin-left: 15px;
+    width: 23rem;
+    height: 30px;
+    align-items: center;
+    background-color: rgb(212, 211, 211);
+    border-radius: 3px;
+    .text-link {
+      padding: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.mat-dialog-content {
+  padding: 10px 24px;
+}
+
+.properties-card {
+  border: 1.5px solid #732939;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.properties-title {
+  display: flex;
+  align-items: center;
+  .mat-icon {
+    padding-right: 25px;
+  }
+}
+
+.link-button {
+  background: none !important;
+  border: none;
+  color: #069;
+  cursor: pointer;
+}
+
+#copy-link {
+  margin-right: 10px;
+}
+
+#change-property {
+  margin-left: 32.5px;
+}

@@ -1,4 +1,5 @@
-﻿using Reco.Shared.Auth;
+﻿using Microsoft.Extensions.Options;
+using Reco.Shared.Auth;
 using Reco.Shared.Security;
 using System;
 using System.IdentityModel.Tokens.Jwt;

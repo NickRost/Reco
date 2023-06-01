@@ -1,0 +1,30 @@
+<div class="w-100">
+  <div class="actions-container">
+    <button mat-button class="button-outlined">{{ viewsNumber }} views</button>
+    <button mat-button class="button-accent" (click)="openSendDialog()">
+      Share
+    </button>
+    <button mat-icon-button>
+      <mat-icon svgIcon="details"></mat-icon>
+    </button>
+  </div>
+  <app-video-player></app-video-player>
+  <h1 class="video-name"><strong>{{currentVideo.name}}</strong></h1>
+  <div *ngIf="currentVideo">
+    <app-video-comments
+      *ngFor="let _comment of currentVideo.comments"
+      [comment]="_comment"
+      (deletedComment)="deleteComment($event)"
+      (newReaction)="updateVideo()"
+    ></app-video-comments>
+  </div>
+  <div *ngIf="currentVideo">
+    <app-video-reactions
+      class="reactions-container"
+      [video]="currentVideo"
+      (newReaction)="updateVideo()"
+      (newCommentCreated)="sendComment($event)"
+    >
+    </app-video-reactions>
+  </div>
+</div>

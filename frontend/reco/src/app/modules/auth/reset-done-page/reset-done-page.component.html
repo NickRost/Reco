@@ -1,0 +1,102 @@
+<div class="flex-container">
+  <div class="left-part">
+    <div class="registration-container">
+      <img src="../../../../assets/icons/logo.svg" alt="logo" />
+      <div class="to-login-container">
+        <h3 class="hello-msg">Hello {{ email }}</h3>
+        <h2>Reset password</h2>
+      </div>
+      <form
+        class="registration-form"
+        [formGroup]="registerForm"
+        action=""
+        (submit)="registerUser()"
+      >
+        <p class="input-label">Password</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          hideRequiredMarker="true"
+        >
+          <input
+            [type]="hidePass ? 'password' : 'text'"
+            matInput
+            minlength="8"
+            placeholder="Password"
+            formControlName="password"
+            trim
+          />
+          <mat-icon
+            class="password-icon"
+            matSuffix
+            (click)="hidePass = !hidePass"
+            >{{ hidePass ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+        </mat-form-field>
+        <div class="errors">
+          <span *ngIf="registerForm.controls['password'].touched">
+            <small
+              *ngIf="registerForm.controls['password'].errors?.['required']"
+            >
+              Password is a required property
+            </small>
+            <small
+              *ngIf=" 
+                            registerForm.controls['password'].errors?.['pattern'] || 
+                            registerForm.controls['password'].errors?.['minlength'] ||
+                            registerForm.controls['password'].errors?.['maxlength'] ||
+                            registerForm.controls['password'].errors?.['cannotContainSpace']"
+            >
+              At least 1 digit and 1 letter, 8-20 characters without spaces
+            </small>
+          </span>
+        </div>
+
+        <p class="input-label">Repeat Password</p>
+        <mat-form-field
+          class="input-form"
+          appearance="fill"
+          hideRequiredMarker="true"
+        >
+          <input
+            [type]="hideConfirmPass ? 'password' : 'text'"
+            matInput
+            minlength="8"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            trim
+          />
+          <mat-icon
+            class="password-icon"
+            matSuffix
+            (click)="hideConfirmPass = !hideConfirmPass"
+            >{{ hideConfirmPass ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+        </mat-form-field>
+        <div class="errors">
+          <small
+            *ngIf=" registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].errors?.['NoPassswordMatch']"
+          >
+            Passwords do not match
+          </small>
+        </div>
+
+        <div class="registation-buttons">
+          <button
+            class="submit-button"
+            mat-button
+            type="submit"
+            [disabled]="!registerForm.valid"
+          >
+            Сreate a new password
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="right-part">
+    <div>
+      <img src="../../../../assets/icons/bigLogo.svg" alt="bigLogo" />
+    </div>
+  </div>
+</div>

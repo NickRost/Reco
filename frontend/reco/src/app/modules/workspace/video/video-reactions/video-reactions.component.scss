@@ -1,0 +1,67 @@
+[data-emoji] {
+  font-style: normal;
+  font-weight: normal;
+}
+[data-emoji]:before {
+  content: attr(data-emoji);
+  margin-right: 0.125em;
+}
+
+.reactions-container {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 40px;
+  .separator {
+    border-left: 3px solid rgb(151, 151, 151);
+    height: 30px;
+  }
+
+  .buttons-reactions {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    .button-label {
+      margin-left: 1rem !important;
+    }
+  }
+
+  .emojis-reactions {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+  }
+}
+
+.mat-container {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-card-content {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.send-icon {
+  color: rgb(251, 109, 58);
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #fb6d3a !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #fb6d3a !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: #fb6d3a !important;
+}
+
+.mat-form-field {
+  width: 20rem;
+}

@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Enter folder name</h2>
+
+<mat-dialog-content [formGroup]="form">
+  
+    <mat-form-field>
+        <input matInput
+                placeholder="Folder name"
+               formControlName="folderName">
+    </mat-form-field>
+    <div class="errors">
+        <span *ngIf="form.controls['folderName'].touched">
+          <small
+            *ngIf="form.controls['folderName'].errors?.['required']"
+          >
+            Workspace is a required property.
+          </small>
+          <small
+            *ngIf="
+            form.controls['folderName'].errors?.['maxlength']"
+          >
+            Must be 1-30 characters 
+          </small>
+        </span>
+      </div>
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="submit-button"(click)="save()" [disabled]="!form.valid">Save</button>
+</mat-dialog-actions>

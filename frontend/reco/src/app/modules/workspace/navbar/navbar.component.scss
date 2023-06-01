@@ -1,0 +1,30 @@
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #732939;
+  height: 115px;
+  justify-content: center;
+}
+
+button {
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.user-avatar-button {
+  padding-bottom: 0.5rem;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  border: 3px solid #fb6d3a;
+}
+
+.additional-icons {
+  margin-left: auto;
+  margin-right: 5px;
+}

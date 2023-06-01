@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Reco.DAL\Reco.DAL.csproj" />
     <ProjectReference Include="..\Reco.Shared\Reco.Shared.csproj" />
   </ItemGroup>
 

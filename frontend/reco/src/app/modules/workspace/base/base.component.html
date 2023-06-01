@@ -1,0 +1,12 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="true">
+    <app-sidebar [user]="this.currentUser"></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-navbar [user]="this.currentUser"></app-navbar>
+    <div class="content mat-elevation-z4">
+      <app-shared-video-page *ngIf="this.isShared"></app-shared-video-page>
+      <router-outlet *ngIf="!this.isShared"></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

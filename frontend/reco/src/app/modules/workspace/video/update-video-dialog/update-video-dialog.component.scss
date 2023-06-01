@@ -1,0 +1,17 @@
+mat-dialog-actions {
+    justify-content: center;
+}
+.submit-button {
+    border-radius: 5px;
+    border: none;
+    background-color: #fb6d3a;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+}
+
+button:disabled {
+    cursor: default;
+    background: #e0d8d7;
+    color: #989898;
+}

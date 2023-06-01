@@ -1,0 +1,163 @@
+:host ::ng-deep .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+
+.to-login-container {
+  margin-top: 6%;
+  h2 {
+    color: #732939;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  .dont-have-account {
+    color: red;
+    margin: 0;
+    margin-top: 4%;
+    color: #777;
+    font-size: 13px;
+    font-weight: 500;
+    button {
+      border: none;
+      background: none;
+      margin: 0px;
+      padding: 0px;
+      span {
+        color: #732939;
+        font-weight: 600;
+        &:hover {
+          color: #b6445d;
+        }
+      }
+    }
+  }
+}
+
+.login-form {
+  margin-top: 5%;
+  width: 360px;
+
+  .input-label {
+    margin: 0;
+    margin-bottom: 2%;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c2c2c;
+  }
+
+  .input-form {
+    width: 100%;
+
+    .password-icon {
+      color: grey;
+    }
+  }
+
+  .errors {
+    width: 100%;
+    min-height: 25px;
+
+    small {
+      color: red;
+    }
+  }
+
+  .registation-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: space-between;
+
+    .submit-button {
+      padding: 15px 45px;
+      font-weight: 600;
+      border-radius: 5px;
+      border: none;
+      background-color: #fb6d3a;
+      color: white;
+    }
+    button:disabled {
+      cursor: default;
+      background: #e0d8d7;
+      color: #989898;
+      border: 1px solid #e0d8d7;
+    }
+
+    p {
+      margin: 0;
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 500;
+      color: #777;
+    }
+
+    .login-with-button {
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background-color: transparent;
+      height: min-content;
+      padding-left: 4%;
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  .left-part {
+    background: #f4e9e9;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .right-part {
+    background: #b6445d;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+}
+
+.dont-have-pass {
+  color: red;
+  margin: 0;
+  margin-top: 4%;
+  color: #777;
+  font-size: 13px;
+  font-weight: 500;
+  button {
+    border: none;
+    background: none;
+    margin: 0px;
+    padding: 0px;
+    span {
+      color: #732939;
+      font-weight: 600;
+      &:hover {
+        color: #b6445d;
+      }
+    }
+  }
+}
+
+.forgot-password {
+  text-decoration: none;
+  color: #732939;
+  margin-left: 10px;
+  &:hover {
+    color: #b6445d;
+  }
+}
